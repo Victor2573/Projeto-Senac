@@ -18,3 +18,6 @@ C:\Users\victor.silva2\source\repos\Projeto\Projeto\obj\Debug\Projeto.frmCadForn
 C:\Users\victor.silva2\source\repos\Projeto\Projeto\bin\Debug\Correios.Net.dll
 C:\Users\victor.silva2\source\repos\Projeto\Projeto\bin\Debug\Correios.Net.pdb
 C:\Users\victor.silva2\source\repos\Projeto\Projeto\obj\Debug\Projeto.csproj.CopyComplete
+C:\Users\victor.silva2\source\repos\Projeto\Projeto\obj\Debug\Projeto.frmPesquisaCliente.resources
+C:\Users\victor.silva2\source\repos\Projeto\Projeto\obj\Debug\Projeto.frmCadFuncionario.resources
+C:\Users\victor.silva2\source\repos\Projeto\Projeto\obj\Debug\Projeto.frmPesquisaFunc.resources

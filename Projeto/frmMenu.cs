@@ -40,5 +40,13 @@ namespace Projeto
         {
             Close();
         }
+
+        private void funcionáriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Visible = false;
+            frmCadFuncionario funcionarios = new frmCadFuncionario();
+            funcionarios.ShowDialog();
+            Visible = true;
+        }
     }
 }

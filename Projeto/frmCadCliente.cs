@@ -74,7 +74,7 @@ namespace Projeto
                 {
                     Conexao.Conectar();
                     string sql = @"INSERT INTO Cliente VALUES (@Cli_Nome, @Cli_Tel, @Cli_Cel, 
-                            @Cli_DTNA, @Cli_CEP, @Cli_Bairro, @Cli_Estado, @Cli_Cidade, @Cli_Complemento, @Cli_Rua)";
+                            @Cli_DTNA, @Cli_CEP, @Cli_Bairro, @Cli_Estado, @Cli_Cidade, @Cli_Complemento, @Cli_Rua, @Cli_Numero)";
                     SqlCommand cmd = new SqlCommand(sql, Conexao.conn);
                     // Adicionar os parametros
                     cmd.Parameters.AddWithValue("Cli_Nome", txtNome.Text);
@@ -87,6 +87,7 @@ namespace Projeto
                     cmd.Parameters.AddWithValue("Cli_Cidade", txtCidade.Text);
                     cmd.Parameters.AddWithValue("Cli_Complemento", txtComplemento.Text);
                     cmd.Parameters.AddWithValue("Cli_Rua", txtRua.Text);
+                    cmd.Parameters.AddWithValue("Cli_Numero", txtNumero.Text);
                     //Executar o comando do banco de dados
                     cmd.ExecuteNonQuery();
 
@@ -146,7 +147,7 @@ namespace Projeto
             {
                 Conexao.Conectar();
                 string sql = @"UPDATE  Cliente SET Cli_Nome=@Nome, Cli_Tel=@Telefone, Cli_Cel=@Celular, 
-                            Cli_DTNA=@Data_Nascimento, Cli_CEP=@CEP, Cli_Bairro=@Bairro, Cli_Estado=@Estado, Cli_Cidade=@Cidade, Cli_Complemento=@Complemento, Cli_Rua=@Rua WHERE Cli_CD = @Codigo)";
+                            Cli_DTNA=@Data_Nascimento, Cli_CEP=@CEP, Cli_Bairro=@Bairro, Cli_Estado=@Estado, Cli_Cidade=@Cidade, Cli_Complemento=@Complemento, Cli_Rua=@Rua, Cli_Numero=@Numero WHERE Cli_CD = @Codigo)";
                 SqlCommand cmd = new SqlCommand(sql, Conexao.conn);
                 // Adicionar os parametros
                 cmd.Parameters.AddWithValue("Nome", txtNome.Text);
@@ -159,7 +160,8 @@ namespace Projeto
                 cmd.Parameters.AddWithValue("Cidade", txtCidade.Text);
                 cmd.Parameters.AddWithValue("Complemento", txtComplemento.Text);
                 cmd.Parameters.AddWithValue("Rua", txtRua.Text);
-                cmd.Parameters.AddWithValue("Codigo", Login.codigo);
+                cmd.Parameters.AddWithValue("Numero", txtNumero.Text);
+                cmd.Parameters.AddWithValue("Codigo", Clientes.codigo);
                 //Executar o comando do banco de dados
                 cmd.ExecuteNonQuery();
 
@@ -191,11 +193,11 @@ namespace Projeto
                 string sql = @"DELETE FROM Cliente
                                 WHERE Cli_CD = @Codigo";
                 SqlCommand cmd = new SqlCommand(sql, Conexao.conn);
-                cmd.Parameters.AddWithValue("Codigo", Login.codigo);
+                cmd.Parameters.AddWithValue("Codigo", Clientes.codigo);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Cadastro excluido com sucesso!");
                 Util.LimparCampos(this);
-                Login.codigo = "";
+                Clientes.codigo = "";
                 txtNome.Focus();
                 //Desabilitar os botões excluir e alterar
                 btnAlterar.Enabled = false;
@@ -213,5 +215,34 @@ namespace Projeto
                 Conexao.Desconectar();
             }
         }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            Clientes.codigo = "";
+            Visible = false;
+            frmPesquisaCliente pesqCliente = new frmPesquisaCliente();
+            pesqCliente.ShowDialog();
+            Visible = true;
+            if (Clientes.codigo != "")
+            {
+                txtNome.Text = Clientes.nome;
+                mskTelefone.Text = Clientes.telefone;
+                mskCelular.Text = Clientes.celular;
+                mskDataNascimento.Text = Clientes.datanascimento;
+                mskCEP.Text = Clientes.cep;
+                txtBairro.Text = Clientes.bairro;
+                cmbEstado.SelectedItem = Clientes.estado;
+                txtCidade.Text = Clientes.cidade;
+                txtComplemento.Text = Clientes.complemento;
+                txtRua.Text = Clientes.rua;
+                txtNumero.Text = Clientes.numero;
+                // Habilitar os botões alterar e excluir
+                btnAlterar.Enabled = true;
+                btnExcluir.Enabled = true;
+                //Desabilitar o botão Cadastrar
+                btnCadastrar.Enabled = false;
+            }
+        }
     }
 }
+

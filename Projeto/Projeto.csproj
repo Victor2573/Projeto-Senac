@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clientes.cs" />
     <Compile Include="Conexao.cs" />
     <Compile Include="Connected Services\WSCEP\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -93,11 +94,29 @@
     <Compile Include="frmCadFornecedores.Designer.cs">
       <DependentUpon>frmCadFornecedores.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCadFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCadFuncionario.Designer.cs">
+      <DependentUpon>frmCadFuncionario.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmMenu.Designer.cs">
       <DependentUpon>frmMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPesquisaCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPesquisaCliente.Designer.cs">
+      <DependentUpon>frmPesquisaCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPesquisaFunc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPesquisaFunc.Designer.cs">
+      <DependentUpon>frmPesquisaFunc.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPesquisaLogin.cs">
       <SubType>Form</SubType>
@@ -105,6 +124,7 @@
     <Compile Include="frmPesquisaLogin.Designer.cs">
       <DependentUpon>frmPesquisaLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Funcionarios.cs" />
     <Compile Include="Limpar.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="Program.cs" />
@@ -128,8 +148,17 @@
     <EmbeddedResource Include="frmCadFornecedores.resx">
       <DependentUpon>frmCadFornecedores.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCadFuncionario.resx">
+      <DependentUpon>frmCadFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPesquisaCliente.resx">
+      <DependentUpon>frmPesquisaCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPesquisaFunc.resx">
+      <DependentUpon>frmPesquisaFunc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPesquisaLogin.resx">
       <DependentUpon>frmPesquisaLogin.cs</DependentUpon>
